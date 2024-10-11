@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.fitness{
+    max-width: 200px;
+    max-height: 232px;
+}
+.tech, .sports, .bbc, .toi{
+    max-width: 200px;
+    max-height: 400px;
+}
+img{
+    height: 200px;
+}
+
+.innerBox{
+    display: flex;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+#headlines-container {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+#headlines-container h2 {
+    text-align: center;
+}
+
+#headlines-container ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+
+#headlines-container li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0.5rem 0;
+    padding: 1rem;
+}
+
+form {
+    margin-bottom: 2rem;
+}
+
+input {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+
+#headlines-container,
+#recommendations-container,
+#search-results-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+li a {
+    text-decoration: none;
+    color: #333;
+}
+
+li a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Mania</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script>
+        async function fetchData(category) {
+            const response = await fetch(`/${category}`);
+            const headlines = await response.json();
+            const container = document.getElementById('headlines-container');
+            container.innerHTML = `<h2>${category.toUpperCase()} News</h2><ul>` +
+                headlines.map(headline => `<li><a href="${headline.link}" target="_blank" onclick="logClick('${category}', '${headline.title}', '${headline.link}')">${headline.title}</a></li>`).join('') +
+                `</ul>`;
+        }
+
+        async function logClick(category, title, link) {
+            await fetch('/log_click', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ category, title, link }),
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>News Mania</h1>
+    </header>
+    <main>
+        <div class="innerBox">
+
+
+            <div class="card" onclick="fetchData('bbc')"><img src="../static/images/bbcNews.jpg" class="bbc">BBC News
+            </div>
+            <div class="card" onclick="fetchData('toi')"><img src="../static/images/timesOfIndia.webp"
+                    class="toi">Times of India</div>
+            <div class="card" onclick="fetchData('fitness')"><img src="../static/images/fitness.avif"
+                    class="fitness">Fitness</div>
+            <div class="card" onclick="fetchData('tech')"><img src="../static/images/tech.jpeg" class="tech">Tech
+            </div>
+            <div class="card" onclick="fetchData('sports')"><img src="../static/images/sports.avif"
+                    class="sports">Sports</div>
+        </div>
+        <div id="headlines-container"></div>
+    </main>
+</body>
+
+</html>
